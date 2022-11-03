@@ -9,6 +9,7 @@ import com.rotativa.usersapi.service.UserService;
 import com.rotativa.usersapi.database.RepositorioUser;
 import com.rotativa.usersapi.entidades.Usuario;
 
+
 @Service("userService")
 public class UserServiceImpl implements UserService{
 	
@@ -43,7 +44,14 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<Usuario> carregarPorNome(String nome) {
+        System.out.println();
         return repositorioUser.carregarPorNome(nome);
     }
+    @Override
+    public List<List<String>> relatorioUsuario() {
+        return repositorioUser.relatorioUsuario();
+    }
+
+  
 }
 

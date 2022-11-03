@@ -26,13 +26,13 @@ public class Vagas {
     private String bairro;
     private Date entrada;
     private Date saida;
-
-    @ManyToMany
+  
+/*     @ManyToMany
     @JoinTable(name = "Vaga_Usuario", 
       joinColumns = @JoinColumn(name = "idvaga"), 
       inverseJoinColumns = @JoinColumn(name = "idusuario"))
-        
-    private List<Usuario> usuarios;
+         */
+ /*    private List<Usuario> usuarios; */
     // `acessibilidade` TINYINT(1) NOT NULL,
     
     public Date getSaida() {
@@ -75,11 +75,11 @@ public class Vagas {
         this.entrada = entrada;
     }
 
-    public List<Usuario> getUsuarios() {
+/*     public List<Usuario> getUsuarios() {
         return usuarios;
     }
 
     public void setUsuarios(List<Usuario> usuarios) {
         this.usuarios = usuarios;
-    }
+    } */
 }

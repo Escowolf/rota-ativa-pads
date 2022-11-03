@@ -5,12 +5,16 @@ import java.util.List;
 import org.springframework.stereotype.Component;
 import com.rotativa.usersapi.entidades.Usuario;
 
+
 @Component
 public interface UserService {
  
     public List<Usuario> listar();
 
     public List<Usuario> carregarPorNome(String nome);
+
+    public List<List<String>> relatorioUsuario();
+
     
     public void salvar(Usuario users);
 

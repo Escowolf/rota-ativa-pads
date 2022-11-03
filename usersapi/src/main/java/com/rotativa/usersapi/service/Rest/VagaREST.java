@@ -1,5 +1,7 @@
 package com.rotativa.usersapi.service.Rest;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,8 +41,32 @@ public class VagaREST {
     }
 
     @DeleteMapping
-    public void excluir(@RequestBody Vagas usuario){
+    public void excluir(@RequestBody Vagas usuario) {
         vagaService.excluir(usuario);
     }
-
+    @GetMapping("/tempoUso")
+    public List<Time> tempoUso() {
+        List<Time> vagas = vagaService.tempoDeUsoVaga();
+        return vagas;
+    }
+    @GetMapping("/endereco")
+    public List<List<String>> enderecoVaga() {
+        List<List<String>> retorno = vagaService.enderecoVaga();
+        return retorno;
+    }
+    @GetMapping("/relatorio")
+    List<List<String>> relatorioFinanceiro() {
+        List<List<String>> retorno = vagaService.relatorioFinanceiro();
+        return retorno;
+    }
+    @GetMapping("/relatorioTotal")
+    List<List<String>> relatorioFinanceiroTotal() {
+        List<List<String>> retorno = vagaService.relatorioFinanceiroTotal();
+        return retorno;
+    }
+    @GetMapping("/relatorioPorVaga")
+    List<List<String>> relatorioFinanceiroPorVaga() {
+        List<List<String>> retorno = vagaService.relatorioFinanceiroPorVaga();
+        return retorno;
+    }
 }

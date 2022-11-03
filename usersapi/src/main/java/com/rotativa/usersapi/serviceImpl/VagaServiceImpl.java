@@ -1,5 +1,7 @@
 package com.rotativa.usersapi.serviceImpl;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,7 +41,31 @@ public class VagaServiceImpl implements VagaService{
 
     @Override
     public void excluir(Vagas usuario) {
-        repositorioVaga.delete(usuario);        
+        repositorioVaga.delete(usuario);
     }
+
+    @Override
+    public List<Time> tempoDeUsoVaga() {
+        return repositorioVaga.tempoDeUsoVaga();
+    }
+    
+    @Override
+    public List<List<String>> enderecoVaga() {
+        return repositorioVaga.enderecoVaga();
+    }
+    @Override
+    public List<List<String>> relatorioFinanceiro() {
+        return repositorioVaga.relatorioFinanceiro();
+    }
+    @Override
+    public List<List<String>> relatorioFinanceiroTotal() {
+        return repositorioVaga.relatorioFinanceiroTotal();
+    }
+    @Override
+    public List<List<String>> relatorioFinanceiroPorVaga() {
+        return repositorioVaga.relatorioFinanceiroPorVaga();
+    }
+
+
 }
 

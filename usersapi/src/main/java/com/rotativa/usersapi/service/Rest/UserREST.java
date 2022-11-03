@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rotativa.usersapi.database.RepositorioUser;
 import com.rotativa.usersapi.entidades.Usuario;
+/* import com.rotativa.usersapi.entidades.Consultas.UsuarioConsulta; */
 import com.rotativa.usersapi.service.UserService;
 // possui as operações operações básicas para manipular o usuário no bd
 @CrossOrigin(origins = "http://localhost:3000") //Permite que o back envie e receba dados de uma origem diferente
@@ -47,10 +48,17 @@ public class UserREST {
 
     @GetMapping("/filtro")
     public List<Usuario> filtroUsuario(@RequestParam("nome") String nome) {
-        System.out.println("Nome =" + nome);
+        System.out.println("Nome = " + nome);
         List<Usuario> usuarios = usersService.carregarPorNome(nome);
-        return usuarios ;
+        return usuarios;
     }
+
+    @GetMapping("/relatorio")
+    List<List<String>> relatorioUsuario() {
+        List<List<String>> filtro = usersService.relatorioUsuario();
+        return filtro;
+    }
+
 
 
     /* @GetMapping("filtro")
