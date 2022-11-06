@@ -10,13 +10,13 @@ VALUES
   (5,"415.651.414-38","Jasmine Horne","0","est.mauris@protonmail.net","YFU68ILT1KQ","2009-02-8",6);
 
 
-INSERT INTO `vaga` (`idvaga`,`rua_avenida`,`bairro`,`entrada`,`saida`,`acessibilidade`)
+INSERT INTO `vaga` (`idvaga`,`rua_avenida`,`bairro`,`acessibilidade`,`nomeVaga`)
 VALUES
-  (1,"Cundinamarca","Sverdlovsk Oblast","2022-07-11 13:41:14","2022-07-11 16:51:13","1"),
-  (2,"Saskatchewan","Xīběi","2022-07-27 12:55:46","2022-07-27 17:48:01","1"),
-  (3,"Heredia","Yukon","2022-03-18 13:23:08","2022-03-18 16:34:19","1"),
-  (4,"Wielkopolskie","Madrid","2009-02-8 12:51:34","2009-02-8 16:09:07","1"),
-  (5,"Vestfold og Telemark","Flevoland","2003-07-11 12:21:59","2003-07-11 14:25:31","1");
+  (1,"Cundinamarca","Messejana","1","A"),
+  (2,"Saskatchewan","Pedras","1","B"),
+  (3,"Heredia","Jabuti","1","C"),
+  (4,"Wielkopolskie","Aldeota","1","D"),
+  (5,"Vestfold og Telemark","Itaitinga","1","E");
   
   
 INSERT INTO `pagamento` (`idpagamento`,`dataCompra`,`valor`,`quantidadeTicket`,`usuario_idusuario`)
@@ -51,6 +51,14 @@ VALUES
   (4,4,"(61)2058-7217"),
   (5,5,"(97)3735-4126");
   
+INSERT INTO `transacao` (`idtransacao`,`vaga_idvaga`,`usuario_idusuario`,`ticketsUsados`,`entrada`,`saida`)
+VALUES
+  (1,1,1,7,"2022-07-11 13:41:14","2022-07-11 16:51:13"),
+  (2,2,2,8,"2022-07-27 12:55:46","2022-07-27 17:48:01"),
+  (3,3,3,10,"2022-03-18 13:23:08","2022-03-18 16:34:19"),
+  (4,4,4,5,"2009-02-8 12:51:34","2009-02-8 16:09:07"),
+  (5,5,5,4,"2003-07-11 12:21:59","2003-07-11 14:25:31");
+
 
 INSERT INTO `usuario_has_vaga` (`usuario_idusuario`,`vaga_idvaga`)
 VALUES
@@ -62,6 +70,7 @@ VALUES
   
 INSERT INTO `usuario_has_veiculo` (`usuario_idusuario`,`veiculo_idveiculo`)
 VALUES
+	
   (1,1),
   (2,2),
   (3,3),

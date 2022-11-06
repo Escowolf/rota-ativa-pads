@@ -4,6 +4,7 @@ import java.sql.Time;
 // interface criada em arquivo separado para manter a privacidade da implementação dos métodos.
 import java.util.List;
 
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 import com.rotativa.usersapi.entidades.Vagas;
 
@@ -18,7 +19,7 @@ public interface VagaService {
 
     List<List<String>> relatorioFinanceiroTotal();
 
-    List<List<String>> relatorioFinanceiroPorVaga();
+    List<List<String>> relatorioFinanceiroPorVaga(@Param("nome") String nome );
  
     public List<Vagas> listar();
     

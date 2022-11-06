@@ -62,8 +62,8 @@ public class VagaServiceImpl implements VagaService{
         return repositorioVaga.relatorioFinanceiroTotal();
     }
     @Override
-    public List<List<String>> relatorioFinanceiroPorVaga() {
-        return repositorioVaga.relatorioFinanceiroPorVaga();
+    public List<List<String>> relatorioFinanceiroPorVaga(String nome) {
+        return repositorioVaga.relatorioFinanceiroPorVaga(nome);
     }
 
 

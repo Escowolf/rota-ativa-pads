@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.rotativa.usersapi.entidades.*;
 import com.rotativa.usersapi.service.TipoPagamentoService;
@@ -23,32 +24,33 @@ import com.rotativa.usersapi.service.VagaService;
 @RequestMapping("/vaga")
 public class VagaREST {
     @Autowired //o spring cria o objeto, injeta no atributo repositório
-	VagaService vagaService;;
+	VagaService vagaService;
 
     @GetMapping
     public List<Vagas> listar(){
         return vagaService.listar();
     }
 
-    @PostMapping
+ /*    @PostMapping
     public void salvar(@RequestBody Vagas usuario){
         vagaService.salvar(usuario);
     }
-
-    @PutMapping
+ */
+  /*   @PutMapping
     public void alterar(@RequestBody Vagas usuario){
         vagaService.alterar(usuario);
     }
-
-    @DeleteMapping
-    public void excluir(@RequestBody Vagas usuario) {
-        vagaService.excluir(usuario);
-    }
-    @GetMapping("/tempoUso")
+ */
+   /*  @DeleteMapping
+   public void excluir(@RequestBody Vagas usuario) {
+       vagaService.excluir(usuario);
+   } */
+    
+  /*   @GetMapping("/tempoUso")
     public List<Time> tempoUso() {
         List<Time> vagas = vagaService.tempoDeUsoVaga();
         return vagas;
-    }
+    } */
     @GetMapping("/endereco")
     public List<List<String>> enderecoVaga() {
         List<List<String>> retorno = vagaService.enderecoVaga();
@@ -65,8 +67,8 @@ public class VagaREST {
         return retorno;
     }
     @GetMapping("/relatorioPorVaga")
-    List<List<String>> relatorioFinanceiroPorVaga() {
-        List<List<String>> retorno = vagaService.relatorioFinanceiroPorVaga();
+    List<List<String>> relatorioFinanceiroPorVaga(@RequestParam("nome") String nome) {
+        List<List<String>> retorno = vagaService.relatorioFinanceiroPorVaga(nome);
         return retorno;
     }
 }
