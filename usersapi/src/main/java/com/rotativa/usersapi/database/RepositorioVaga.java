@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 
 import com.rotativa.usersapi.entidades.*;
 
-
+/* teste */
 
 public interface RepositorioVaga extends JpaRepository<Vagas, Long> {
 
