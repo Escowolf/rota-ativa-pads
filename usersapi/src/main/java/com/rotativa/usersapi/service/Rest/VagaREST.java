@@ -61,14 +61,23 @@ public class VagaREST {
         List<List<String>> retorno = vagaService.relatorioFinanceiro();
         return retorno;
     }
-    @GetMapping("/relatorioTotal")
-    List<List<String>> relatorioFinanceiroTotal() {
-        List<List<String>> retorno = vagaService.relatorioFinanceiroTotal();
-        return retorno;
-    }
+   
     @GetMapping("/relatorioPorVaga")
     List<List<String>> relatorioFinanceiroPorVaga(@RequestParam("nome") String nome) {
         List<List<String>> retorno = vagaService.relatorioFinanceiroPorVaga(nome);
         return retorno;
     }
+
+    @GetMapping("/relatorioRank")
+    List<List<String>> relatorioFinanceioRank() {
+        List<List<String>> retorno = vagaService.relatorioRank();
+        return retorno;
+    }
+    @GetMapping("/buscar")
+    List<List<String>> buscarVaga(@RequestParam("nome") String nome) {
+        List<List<String>> retorno = vagaService.buscarVaga(nome);
+        return retorno;
+    }
+
+
 }

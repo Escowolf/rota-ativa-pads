@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Table(name = "vaga", schema = "rotaativa")
 public class Vagas {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   /*  @GeneratedValue(strategy = GenerationType.IDENTITY) */
     private int idvaga;
     @Column(nullable = false)
     private String rua_avenida;
@@ -33,8 +33,11 @@ public class Vagas {
       inverseJoinColumns = @JoinColumn(name = "idusuario"))
          */
  /*    private List<Usuario> usuarios; */
-    // `acessibilidade` TINYINT(1) NOT NULL,
-    
+ // `acessibilidade` TINYINT(1) NOT NULL,
+ 
+  /*   
+ `idvaga`,`rua_avenida`,`bairro`,`acessibilidade`,`nomeVaga`,`longitudeInicial`,`longitudeFinal`,`latitudeInicial`,`latitudeFinal`,`tempoTicket_idtempoTicket`,`tipoVaga_idtipoVaga`,`horarioUsoInica`,`horarioUsoFinal`,`estadoVaga`
+   */  
     public Date getSaida() {
         return saida;
     }

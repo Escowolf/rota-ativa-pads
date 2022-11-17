@@ -12,7 +12,7 @@ import javax.persistence.Table;
 @Table(name="tipopagamento", schema = "rotaativa")
 public class TipoPagamento {
     @Id 
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   /*  @GeneratedValue(strategy = GenerationType.IDENTITY) */
     private int idTipoPagamento;
     private String TipoPagamento;
     private String DescPagamento;
@@ -21,18 +21,20 @@ public class TipoPagamento {
     @JoinColumn(nullable = false,unique = false)
     private Usuario usuario;  */
 
-    @ManyToOne
-    @JoinColumn(nullable = false,unique = false)
-    private Pagamento pagamento;
+    /* @ManyToOne
+    @JoinColumn(name = "pagamento_idpagamento",nullable = false)
+    private Pagamento pagamento; */
     
   
     
-    public Pagamento getPagamento() {
+   /*  public Pagamento getPagamento() {
         return pagamento;
     }
+
     public void setPagamento(Pagamento pagamento) {
         this.pagamento = pagamento;
-    }
+    } */
+    
    /*  public Usuario getUsuario() {
         return usuario;
     }

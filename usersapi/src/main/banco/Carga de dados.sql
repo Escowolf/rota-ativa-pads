@@ -1,6 +1,27 @@
 Start transaction;
 use rotaativa;
 
+INSERT INTO `tempoTicket` (`idtempoTicket`,`tempoTicket`)
+values
+  (1,2),
+  (2,5),
+  (3,5),
+  (4,2),
+  (5,2);
+  
+INSERT INTO `tipoVaga` (`idtipoVaga`,`tipoVaga`)
+VALUES
+(1,"alternativo"),
+(2,"especial"),
+(3,"moto");
+
+INSERT INTO `administrador` (`idadministrador`,`nome`,`cpf`,`email`,`datanasc`,`senha`)
+VALUES
+(1,"Buffy Cooley","409.178.650-22","Buffy@gmail.com","1975-07-24","4532134"),
+(2,"Rahor","029.683.090-99","Rahor@gmail.com","1980-05-09","3432543"),
+(3,"Teibieza","369.294.690-25","Teibieza@gmail.com","1995-06-15","342342345");
+  
+
 INSERT INTO `usuario` (`idusuario`,`cpf`,`nome`,`acessibilidade`,`email`,`senha`,`datanasc`,`ticket`)
 VALUES
   (1,"172.495.494-87","Miriam Valenzuela","1","suscipit.est@hotmail.ca","TVG67VPB6MS","2003-07-11",4),
@@ -10,14 +31,15 @@ VALUES
   (5,"415.651.414-38","Jasmine Horne","0","est.mauris@protonmail.net","YFU68ILT1KQ","2009-02-8",6);
 
 
-INSERT INTO `vaga` (`idvaga`,`rua_avenida`,`bairro`,`acessibilidade`,`nomeVaga`)
+INSERT INTO `vaga` (`idvaga`,`rua_avenida`,`bairro`,`acessibilidade`,`nomeVaga`,`longitudeInicial`,`longitudeFinal`,`latitudeInicial`,`latitudeFinal`,`tempoTicket_idtempoTicket`,`tipoVaga_idtipoVaga`,`horarioUsoInica`,`horarioUsoFinal`,`estadoVaga`)
 VALUES
-  (1,"Cundinamarca","Messejana","1","A"),
-  (2,"Saskatchewan","Pedras","1","B"),
-  (3,"Heredia","Jabuti","1","C"),
-  (4,"Wielkopolskie","Aldeota","1","D"),
-  (5,"Vestfold og Telemark","Itaitinga","1","E");
-  
+  (1,"Cundinamarca","Messejana","1","A","58.2512","69.8435","23.8663","167.0784",1,1,"08:00:00","18:00:00","1"),
+  (2,"Saskatchewan","Pedras","1","B","60.5023","24.7620","77.3261","7.8026",2,2,"08:00:00","18:00:00","1"),
+  (3,"Heredia","Jabuti","1","C","48.2111","102.6024","81.6287","110.0786",3,3,"08:00:00","18:00:00","1"),
+  (4,"Wielkopolskie","Aldeota","1","D","68.9873","107.5199","20.1218","130.4796",4,2,"08:00:00","18:00:00","1"),
+  (5,"Vestfold og Telemark","Itaitinga","1","E","67.3375","42.5530","59.0523","69.5340",5,1,"08:00:00","18:00:00","1");
+
+
   
 INSERT INTO `pagamento` (`idpagamento`,`dataCompra`,`valor`,`quantidadeTicket`,`usuario_idusuario`)
 VALUES
@@ -60,13 +82,6 @@ VALUES
   (5,5,5,4,"2003-07-11 12:21:59","2003-07-11 14:25:31");
 
 
-INSERT INTO `usuario_has_vaga` (`usuario_idusuario`,`vaga_idvaga`)
-VALUES
-  (1,1),
-  (2,2),
-  (3,3),
-  (4,4),
-  (5,5);
   
 INSERT INTO `usuario_has_veiculo` (`usuario_idusuario`,`veiculo_idveiculo`)
 VALUES
@@ -76,6 +91,7 @@ VALUES
   (3,3),
   (4,4),
   (5,5);
+  
   
   commit;
 

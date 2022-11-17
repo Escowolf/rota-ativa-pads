@@ -11,14 +11,16 @@ public interface UserService {
  
     public List<Usuario> listar();
 
-    public List<Usuario> carregarPorNome(String nome);
-
-    public List<List<String>> relatorioUsuario();
-
-    
     public void salvar(Usuario users);
 
     public void alterar(Usuario usuario);
 
     public void excluir(Usuario usuario);
+
+    public List<Usuario> carregarPorNome(String nome);
+
+    public List<List<String>> relatorioUsuario();
+
+    
+    
 }

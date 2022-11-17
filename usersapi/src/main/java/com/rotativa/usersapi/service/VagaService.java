@@ -17,7 +17,7 @@ public interface VagaService {
 
     List<List<String>> relatorioFinanceiro();
 
-    List<List<String>> relatorioFinanceiroTotal();
+    List<List<String>> relatorioRank();
 
     List<List<String>> relatorioFinanceiroPorVaga(@Param("nome") String nome );
  
@@ -28,4 +28,6 @@ public interface VagaService {
     public void alterar(Vagas vagas);
 
     public void excluir(Vagas vagas);
+
+    List<List<String>> buscarVaga(@Param("nome") String nome);
 }

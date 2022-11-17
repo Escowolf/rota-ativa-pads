@@ -1,6 +1,8 @@
 package com.rotativa.usersapi.entidades;
 
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 /* Este projeto utiliza SpringBoot. Para que o Spring reconheça as elementos 
 do projeto eles devem ser criados dentro da pasta userapi*/
@@ -10,21 +12,27 @@ import javax.persistence.GenerationType; //Estabelecendo estratégia para gerar 
 import javax.persistence.Id; //identificando chave primária para o framework
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "pagamento", schema = "rotaativa")
 public class Pagamento {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+   /*  @GeneratedValue(strategy = GenerationType.IDENTITY) */
     private int idpagamento;
     private Date dataCompra;
     private Double valor;
     private int quantidadeTicket;
 
-    @ManyToOne
-    @JoinColumn(nullable = false,unique = false)
+   /*  @ManyToOne
+    @JoinColumn(name = "usuario_idusuario" ,nullable = false)
     private Usuario usuario;
+
+    @OneToMany(mappedBy = "pagamento")
+    private List<TipoPagamento> tiposPagamento; */
+
+
     // private int usuario_idusuario
     // PRIMARY KEY (`idpagamento`, `usuario_idusuario`),
     // INDEX `fk_pagamento_TipoPagamento1_idx` (`TipoPagamento_idTipoPagamento` ASC)
@@ -40,17 +48,18 @@ public class Pagamento {
     // REFERENCES `RotaAtiva`.`usuario` (`idusuario`)
     // ON DELETE NO ACTION
     // ON UPDATE NO ACTION)
+
     
     public int getIdpagamento() {
         return idpagamento;
     }
 
-    public Usuario getUsuario() {
+    /* public Usuario getUsuario() {
         return usuario;
     }
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
-    }
+    } */
     public void setIdpagamento(int idpagamento) {
         this.idpagamento = idpagamento;
     }
@@ -73,6 +82,14 @@ public class Pagamento {
     public void setQuantidadeTicket(int quantidadeTicket) {
         this.quantidadeTicket = quantidadeTicket;
     }
+
+   /*  public List<TipoPagamento> getTiposPagamento() {
+        return tiposPagamento;
+    }
+
+    public void setTiposPagamento(List<TipoPagamento> tiposPagamento) {
+        this.tiposPagamento = tiposPagamento;
+    } */
     
     
 }

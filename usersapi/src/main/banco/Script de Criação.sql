@@ -26,7 +26,28 @@ CREATE TABLE IF NOT EXISTS `RotaAtiva`.`usuario` (
   `senha` VARCHAR(45) NOT NULL,
   `datanasc` DATE NOT NULL,
   `ticket` INT NULL,
+  `estadoUsuario` TINYINT(1) NULL,
   PRIMARY KEY (`idusuario`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `RotaAtiva`.`tipoVaga`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `RotaAtiva`.`tipoVaga` (
+  `idtipoVaga` INT NOT NULL,
+  `tipoVaga` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idtipoVaga`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `RotaAtiva`.`tempoTicket`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `RotaAtiva`.`tempoTicket` (
+  `idtempoTicket` INT NOT NULL,
+  `tempoTicket` INT NOT NULL,
+  PRIMARY KEY (`idtempoTicket`))
 ENGINE = InnoDB;
 
 
@@ -36,10 +57,32 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `RotaAtiva`.`vaga` (
   `idvaga` INT NOT NULL AUTO_INCREMENT,
   `rua_avenida` VARCHAR(45) NOT NULL,
-  `bairro` VARCHAR(45) NOT NULL,
+  `bairro` VARCHAR(45) NULL,
   `acessibilidade` TINYINT(1) NOT NULL,
   `nomeVaga` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idvaga`))
+  `longitudeInicial` VARCHAR(45) NOT NULL,
+  `longitudeFinal` VARCHAR(45) NOT NULL,
+  `latitudeInicial` VARCHAR(45) NOT NULL,
+  `latitudeFinal` VARCHAR(45) NOT NULL,
+  `tempoTicket_idtempoTicket` INT NOT NULL,
+  `tipoVaga_idtipoVaga` INT NOT NULL,
+  `horarioUsoInica` TIME NOT NULL,
+  `horarioUsoFinal` TIME NOT NULL,
+  `estadoVaga` TINYINT(1) NULL,
+  `quantidadeVaga` INT NULL,
+  PRIMARY KEY (`idvaga`, `tempoTicket_idtempoTicket`, `tipoVaga_idtipoVaga`),
+  INDEX `fk_vaga_tipoVaga1_idx` (`tipoVaga_idtipoVaga` ASC) VISIBLE,
+  INDEX `fk_vaga_tempoTicket1_idx` (`tempoTicket_idtempoTicket` ASC) VISIBLE,
+  CONSTRAINT `fk_vaga_tipoVaga1`
+    FOREIGN KEY (`tipoVaga_idtipoVaga`)
+    REFERENCES `RotaAtiva`.`tipoVaga` (`idtipoVaga`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_vaga_tempoTicket1`
+    FOREIGN KEY (`tempoTicket_idtempoTicket`)
+    REFERENCES `RotaAtiva`.`tempoTicket` (`idtempoTicket`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -133,28 +176,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `RotaAtiva`.`usuario_has_vaga`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `RotaAtiva`.`usuario_has_vaga` (
-  `usuario_idusuario` INT NOT NULL,
-  `vaga_idvaga` INT NOT NULL,
-  PRIMARY KEY (`usuario_idusuario`, `vaga_idvaga`),
-  INDEX `fk_usuario_has_vaga_vaga1_idx` (`vaga_idvaga` ASC) VISIBLE,
-  INDEX `fk_usuario_has_vaga_usuario1_idx` (`usuario_idusuario` ASC) VISIBLE,
-  CONSTRAINT `fk_usuario_has_vaga_usuario1`
-    FOREIGN KEY (`usuario_idusuario`)
-    REFERENCES `RotaAtiva`.`usuario` (`idusuario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_usuario_has_vaga_vaga1`
-    FOREIGN KEY (`vaga_idvaga`)
-    REFERENCES `RotaAtiva`.`vaga` (`idvaga`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `RotaAtiva`.`transacao`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `RotaAtiva`.`transacao` (
@@ -177,6 +198,20 @@ CREATE TABLE IF NOT EXISTS `RotaAtiva`.`transacao` (
     REFERENCES `RotaAtiva`.`usuario` (`idusuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `RotaAtiva`.`administrador`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `RotaAtiva`.`administrador` (
+  `idadministrador` INT NOT NULL,
+  `nome` VARCHAR(45) NOT NULL,
+  `cpf` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  `datanasc` DATE NOT NULL,
+  `senha` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`idadministrador`))
 ENGINE = InnoDB;
 
 
