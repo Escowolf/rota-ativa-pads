@@ -3,6 +3,7 @@ package com.rotativa.usersapi.entidades;
 /* Este projeto utiliza SpringBoot. Para que o Spring reconheça as elementos 
 do projeto eles devem ser criados dentro da pasta userapi*/
 import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 
 import javax.persistence.Entity; //O uso de @Entity identifica uma classe como Entidade
@@ -13,6 +14,7 @@ import javax.persistence.Id; //identificando chave primária para o framework
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -24,65 +26,104 @@ public class Vagas {
     @Column(nullable = false)
     private String rua_avenida;
     private String bairro;
-    private Date entrada;
-    private Date saida;
-  
-/*     @ManyToMany
-    @JoinTable(name = "Vaga_Usuario", 
-      joinColumns = @JoinColumn(name = "idvaga"), 
-      inverseJoinColumns = @JoinColumn(name = "idusuario"))
-         */
- /*    private List<Usuario> usuarios; */
- // `acessibilidade` TINYINT(1) NOT NULL,
- 
-  /*   
- `idvaga`,`rua_avenida`,`bairro`,`acessibilidade`,`nomeVaga`,`longitudeInicial`,`longitudeFinal`,`latitudeInicial`,`latitudeFinal`,`tempoTicket_idtempoTicket`,`tipoVaga_idtipoVaga`,`horarioUsoInica`,`horarioUsoFinal`,`estadoVaga`
-   */  
-    public Date getSaida() {
-        return saida;
-    }
+    private String acessibilidade;
+    private String nomevaga;
+    private int longitudeinicial;
+    private int longitudefinal;
+    private int latitudeinicial;
+    private int latitudefinal;
+    private Time horariousoinica;
+    private Time horariousofinal;
+    private boolean estadovaga;
+    private int tempoticket;
+  /*   private Date entrada;
+  private Date saida;
+  */
 
-    public void setSaida(Date saida) {
-        this.saida = saida;
-    }
+    
 
     public int getIdvaga() {
         return idvaga;
     }
-
+    public int getTempoticket() {
+        return tempoticket;
+    }
+    public void setTempoticket(int tempoticket) {
+        this.tempoticket = tempoticket;
+    }
     public void setIdvaga(int idvaga) {
         this.idvaga = idvaga;
     }
-
     public String getRua_avenida() {
         return rua_avenida;
     }
-
     public void setRua_avenida(String rua_avenida) {
         this.rua_avenida = rua_avenida;
     }
-
     public String getBairro() {
         return bairro;
     }
-
     public void setBairro(String bairro) {
         this.bairro = bairro;
     }
-
-    public Date getEntrada() {
-        return entrada;
+    public String getAcessibilidade() {
+        return acessibilidade;
     }
-
-    public void setEntrada(Date entrada) {
-        this.entrada = entrada;
+    public void setAcessibilidade(String acessibilidade) {
+        this.acessibilidade = acessibilidade;
     }
-
-/*     public List<Usuario> getUsuarios() {
-        return usuarios;
+    public String getNomeVaga() {
+        return nomevaga;
     }
+    public void setNomeVaga(String nomeVaga) {
+        this.nomevaga = nomeVaga;
+    }
+    public int getLongitudeInicial() {
+        return longitudeinicial;
+    }
+    public void setLongitudeInicial(int longitudeInicial) {
+        this.longitudeinicial = longitudeInicial;
+    }
+    public int getLongitudeFinal() {
+        return longitudefinal;
+    }
+    public void setLongitudeFinal(int longitudeFinal) {
+        this.longitudefinal = longitudeFinal;
+    }
+    public int getLatitudeInicial() {
+        return latitudeinicial;
+    }
+    public void setLatitudeInicial(int latitudeInicial) {
+        this.latitudeinicial = latitudeInicial;
+    }
+    public int getLatitudeFinal() {
+        return latitudefinal;
+    }
+    public void setLatitudeFinal(int latitudeFinal) {
+        this.latitudefinal = latitudeFinal;
+    }
+    public Time getHorarioUsoInica() {
+        return horariousoinica;
+    }
+    public void setHorarioUsoInica(Time horarioUsoInica) {
+        this.horariousoinica = horarioUsoInica;
+    }
+    public Time getHorarioUsoFinal() {
+        return horariousofinal;
+    }
+    public void setHorarioUsoFinal(Time horarioUsoFinal) {
+        this.horariousofinal = horarioUsoFinal;
+    }
+    public boolean isEstadoVaga() {
+        return estadovaga;
+    }
+    public void setEstadoVaga(boolean estadoVaga) {
+        this.estadovaga = estadoVaga;
+    }
+      
 
-    public void setUsuarios(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
-    } */
+     
+
+  
+    
 }

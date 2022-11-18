@@ -31,20 +31,20 @@ public class VagaREST {
         return vagaService.listar();
     }
 
- /*    @PostMapping
+    @PostMapping
     public void salvar(@RequestBody Vagas usuario){
         vagaService.salvar(usuario);
     }
- */
-  /*   @PutMapping
+
+    @PutMapping
     public void alterar(@RequestBody Vagas usuario){
         vagaService.alterar(usuario);
     }
- */
-   /*  @DeleteMapping
+
+    @DeleteMapping
    public void excluir(@RequestBody Vagas usuario) {
        vagaService.excluir(usuario);
-   } */
+   }
     
   /*   @GetMapping("/tempoUso")
     public List<Time> tempoUso() {
@@ -79,5 +79,15 @@ public class VagaREST {
         return retorno;
     }
 
+    @GetMapping("/teste")
+    String teste(@RequestParam("nome") String nome) {
+        String nomeTeste = "oi";
+        if (nomeTeste.equals(nome)) {
+            return "Deu certo";
+        } else {
+            return "Errado";
+        }
+       
+    }
 
 }

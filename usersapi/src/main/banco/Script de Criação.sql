@@ -32,26 +32,6 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `RotaAtiva`.`tipoVaga`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `RotaAtiva`.`tipoVaga` (
-  `idtipoVaga` INT NOT NULL,
-  `tipoVaga` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`idtipoVaga`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `RotaAtiva`.`tempoTicket`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `RotaAtiva`.`tempoTicket` (
-  `idtempoTicket` INT NOT NULL,
-  `tempoTicket` INT NOT NULL,
-  PRIMARY KEY (`idtempoTicket`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
 -- Table `RotaAtiva`.`vaga`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `RotaAtiva`.`vaga` (
@@ -60,29 +40,16 @@ CREATE TABLE IF NOT EXISTS `RotaAtiva`.`vaga` (
   `bairro` VARCHAR(45) NULL,
   `acessibilidade` TINYINT(1) NOT NULL,
   `nomeVaga` VARCHAR(45) NOT NULL,
-  `longitudeInicial` VARCHAR(45) NOT NULL,
-  `longitudeFinal` VARCHAR(45) NOT NULL,
-  `latitudeInicial` VARCHAR(45) NOT NULL,
-  `latitudeFinal` VARCHAR(45) NOT NULL,
-  `tempoTicket_idtempoTicket` INT NOT NULL,
-  `tipoVaga_idtipoVaga` INT NOT NULL,
+  `longitudeInicial` INT NOT NULL,
+  `longitudeFinal` INT NOT NULL,
+  `latitudeInicial` INT NOT NULL,
+  `latitudeFinal` INT NOT NULL,
   `horarioUsoInica` TIME NOT NULL,
   `horarioUsoFinal` TIME NOT NULL,
   `estadoVaga` TINYINT(1) NULL,
   `quantidadeVaga` INT NULL,
-  PRIMARY KEY (`idvaga`, `tempoTicket_idtempoTicket`, `tipoVaga_idtipoVaga`),
-  INDEX `fk_vaga_tipoVaga1_idx` (`tipoVaga_idtipoVaga` ASC) VISIBLE,
-  INDEX `fk_vaga_tempoTicket1_idx` (`tempoTicket_idtempoTicket` ASC) VISIBLE,
-  CONSTRAINT `fk_vaga_tipoVaga1`
-    FOREIGN KEY (`tipoVaga_idtipoVaga`)
-    REFERENCES `RotaAtiva`.`tipoVaga` (`idtipoVaga`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_vaga_tempoTicket1`
-    FOREIGN KEY (`tempoTicket_idtempoTicket`)
-    REFERENCES `RotaAtiva`.`tempoTicket` (`idtempoTicket`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `tempoTicket` INT NOT NULL,
+  PRIMARY KEY (`idvaga`))
 ENGINE = InnoDB;
 
 

@@ -67,6 +67,8 @@ public interface RepositorioVaga extends JpaRepository<Vagas, Long> {
     "where nomeVaga = :nome" , nativeQuery = true)
     List<List<String>> buscarVaga(String nome);
 
+
+
 }
 
 

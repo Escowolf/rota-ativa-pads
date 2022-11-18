@@ -129,7 +129,7 @@ order by tempoUso desc;
 ########BuscarAdm
 select * from administrador where email = "Rahor@gmail.com" and senha = 3432543;
 
-########BuscarVaga
+########BuscarVagaCompleta
 select idvaga,nomeVaga,rua_avenida,bairro,acessibilidade,longitudeInicial,longitudeFinal,latitudeInicial,latitudeFinal,horarioUsoInica,horarioUsoFinal,tipoVaga,tempoTicket,estadoVaga from vaga v
 join tipoVaga tv
 on tv.idtipovaga = v.tipoVaga_idtipoVaga
@@ -138,6 +138,13 @@ on tt.idtempoTicket = v.tempoTicket_idtempoTicket
 where nomeVaga = "A";
 
 select * from vaga;
+
+########BuscarVagaUnica
+select nomeVaga,estadoVaga from vaga where nomeVaga = "A";
+
+########CadastarVaga
+select * from vaga;
+ 
 
 
 
@@ -181,5 +188,6 @@ on tt.idtempoTicket = v.tempoTicket_idtempoTicket;
 
 DELETE FROM usuario
 WHERE idusuario = 5;
+
 
   

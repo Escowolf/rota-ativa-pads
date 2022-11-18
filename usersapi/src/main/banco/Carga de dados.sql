@@ -1,20 +1,6 @@
 Start transaction;
 use rotaativa;
-
-INSERT INTO `tempoTicket` (`idtempoTicket`,`tempoTicket`)
-values
-  (1,2),
-  (2,5),
-  (3,5),
-  (4,2),
-  (5,2);
   
-INSERT INTO `tipoVaga` (`idtipoVaga`,`tipoVaga`)
-VALUES
-(1,"alternativo"),
-(2,"especial"),
-(3,"moto");
-
 INSERT INTO `administrador` (`idadministrador`,`nome`,`cpf`,`email`,`datanasc`,`senha`)
 VALUES
 (1,"Buffy Cooley","409.178.650-22","Buffy@gmail.com","1975-07-24","4532134"),
@@ -31,13 +17,13 @@ VALUES
   (5,"415.651.414-38","Jasmine Horne","0","est.mauris@protonmail.net","YFU68ILT1KQ","2009-02-8",6);
 
 
-INSERT INTO `vaga` (`idvaga`,`rua_avenida`,`bairro`,`acessibilidade`,`nomeVaga`,`longitudeInicial`,`longitudeFinal`,`latitudeInicial`,`latitudeFinal`,`tempoTicket_idtempoTicket`,`tipoVaga_idtipoVaga`,`horarioUsoInica`,`horarioUsoFinal`,`estadoVaga`)
+INSERT INTO `vaga` (`idvaga`,`rua_avenida`,`bairro`,`acessibilidade`,`nomeVaga`,`longitudeInicial`,`longitudeFinal`,`latitudeInicial`,`latitudeFinal`,`horarioUsoInica`,`horarioUsoFinal`,`estadoVaga`,`tempoTicket`)
 VALUES
-  (1,"Cundinamarca","Messejana","1","A","58.2512","69.8435","23.8663","167.0784",1,1,"08:00:00","18:00:00","1"),
-  (2,"Saskatchewan","Pedras","1","B","60.5023","24.7620","77.3261","7.8026",2,2,"08:00:00","18:00:00","1"),
-  (3,"Heredia","Jabuti","1","C","48.2111","102.6024","81.6287","110.0786",3,3,"08:00:00","18:00:00","1"),
-  (4,"Wielkopolskie","Aldeota","1","D","68.9873","107.5199","20.1218","130.4796",4,2,"08:00:00","18:00:00","1"),
-  (5,"Vestfold og Telemark","Itaitinga","1","E","67.3375","42.5530","59.0523","69.5340",5,1,"08:00:00","18:00:00","1");
+  (1,"Cundinamarca","Messejana","1","A",582512,698435,238663,1670784,"08:00:00","18:00:00","1",2),
+  (2,"Saskatchewan","Pedras","1","B",605023,247620,773261,78026,"08:00:00","18:00:00","1",5),
+  (3,"Heredia","Jabuti","1","C",482111,1026024,816287,1100786,"08:00:00","18:00:00","1",2),
+  (4,"Wielkopolskie","Aldeota","1","D",689873,1075199,201218,1304796,"08:00:00","18:00:00","1",2),
+  (5,"Vestfold og Telemark","Itaitinga","1","E",673375,425530,590523,695340,"08:00:00","18:00:00","1",5);
 
 
   

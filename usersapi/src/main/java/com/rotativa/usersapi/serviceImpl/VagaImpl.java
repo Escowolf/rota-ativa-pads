@@ -13,12 +13,12 @@ import com.rotativa.usersapi.database.RepositorioVaga;
 import com.rotativa.usersapi.entidades.Vagas;
 
 @Service("vagaService")
-public class VagaServiceImpl implements VagaService{
+public class VagaImpl implements VagaService{
 	
     RepositorioVaga repositorioVaga;
 	
 	@Autowired
-	public VagaServiceImpl(RepositorioVaga repositorioVaga) {
+	public VagaImpl(RepositorioVaga repositorioVaga) {
 		this.repositorioVaga = repositorioVaga;
 	}
 	
