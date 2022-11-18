@@ -2,26 +2,17 @@ package com.rotativa.usersapi.entidades;
 
 /* Este projeto utiliza SpringBoot. Para que o Spring reconheça as elementos 
 do projeto eles devem ser criados dentro da pasta userapi*/
-import java.sql.Date;
 import java.sql.Time;
-import java.util.List;
 
 import javax.persistence.Entity; //O uso de @Entity identifica uma classe como Entidade
 import javax.persistence.Column; // Definindo regras para a coluna
-import javax.persistence.GeneratedValue; //Gerando valor aleatório
-import javax.persistence.GenerationType; //Estabelecendo estratégia para gerar valores aleatórios
 import javax.persistence.Id; //identificando chave primária para o framework
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "vaga", schema = "rotaativa")
 public class Vagas {
     @Id
-   /*  @GeneratedValue(strategy = GenerationType.IDENTITY) */
     private int idvaga;
     @Column(nullable = false)
     private String rua_avenida;
@@ -36,10 +27,6 @@ public class Vagas {
     private Time horariousofinal;
     private boolean estadovaga;
     private int tempoticket;
-  /*   private Date entrada;
-  private Date saida;
-  */
-
     
 
     public int getIdvaga() {

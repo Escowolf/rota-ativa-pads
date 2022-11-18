@@ -1,6 +1,5 @@
 package com.rotativa.usersapi.database;
 
-import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 
@@ -59,12 +58,8 @@ public interface RepositorioVaga extends JpaRepository<Vagas, Long> {
     "order by tempoUso desc", nativeQuery = true)
     List<List<String>> relatorioRank();
 
-    @Query(value = "select idvaga,nomeVaga,rua_avenida,bairro,acessibilidade,longitudeInicial,longitudeFinal,latitudeInicial,latitudeFinal,horarioUsoInica,horarioUsoFinal,tipoVaga,tempoTicket,estadoVaga from vaga v "+
-    "join tipoVaga tv "+
-    "on tv.idtipovaga = v.tipoVaga_idtipoVaga "+
-    "join tempoTicket tt "+
-    "on tt.idtempoTicket = v.tempoTicket_idtempoTicket "+
-    "where nomeVaga = :nome" , nativeQuery = true)
+    @Query(value = "select idvaga,nomeVaga,rua_avenida,bairro,acessibilidade,longitudeInicial,longitudeFinal,latitudeInicial,latitudeFinal,horarioUsoInica,horarioUsoFinal,tempoTicket,estadoVaga from vaga v "+
+    "where nomeVaga = :nome", nativeQuery = true)
     List<List<String>> buscarVaga(String nome);
 
 

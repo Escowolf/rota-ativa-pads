@@ -1,5 +1,4 @@
 package com.rotativa.usersapi.service;
-import java.sql.Date;
 import java.sql.Time;
 // interface criada em arquivo separado para manter a privacidade da implementação dos métodos.
 import java.util.List;

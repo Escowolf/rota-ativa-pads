@@ -15,11 +15,8 @@ public interface RepositorioUser extends JpaRepository<Usuario, Long> {
 
     @Query(value = "SELECT * FROM usuario WHERE usuario.nome = :nome",  nativeQuery = true)
     List<Usuario> carregarPorNome(@Param("nome") String nome);
-    
-/*     @Query(value = "SELECT nome FROM usuario WHERE usuario.nome = :nome",  nativeQuery = true)
-List<UsuarioConsulta> somenteNome(@Param("nome") String nome); */
 
-@Query(value = "select u.nome,u.email ,t.telefone,v.cor, v.placa, v.modelo from usuario u "+ 
+@   Query(value = "select u.nome,u.email ,t.telefone,v.cor, v.placa, v.modelo from usuario u "+ 
     "join usuario_has_veiculo h "+
     "on u.idusuario = h.usuario_idusuario "+
     "join veiculo v "+
@@ -28,10 +25,6 @@ List<UsuarioConsulta> somenteNome(@Param("nome") String nome); */
     "on u.idusuario = t.usuario_idusuario",  nativeQuery = true)
     List<List<String>> relatorioUsuario();
 
-
-
-
 }
-/* select u.nome,u.email ,t.telefone,v.cor, v.placa, v.modelo from usuario u join usuario_has_veiculo h on u.idusuario = h.usuario_idusuario join veiculo v on v.idveiculo = h.veiculo_idveiculo join telefone t on u.idusuario = t.usuario_idusuario */
 
 

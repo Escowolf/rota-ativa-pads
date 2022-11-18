@@ -3,8 +3,6 @@ package com.rotativa.usersapi.entidades;
 /* Este projeto utiliza SpringBoot. Para que o Spring reconheça as elementos 
 do projeto eles devem ser criados dentro da pasta userapi*/
 import javax.persistence.Entity; //O uso de @Entity identifica uma classe como Entidade
-import javax.persistence.GeneratedValue; //Gerando valor aleatório
-import javax.persistence.GenerationType; //Estabelecendo estratégia para gerar valores aleatórios
 import javax.persistence.Id; //identificando chave primária para o framework
 import javax.persistence.Table;
 
@@ -12,7 +10,6 @@ import javax.persistence.Table;
 @Table(name = "veiculo", schema = "rotaativa")
 public class Veiculo {
   @Id
- /*  @GeneratedValue(strategy = GenerationType.IDENTITY) */
   private int idveiculo;
   private String cor;
   private String placa;

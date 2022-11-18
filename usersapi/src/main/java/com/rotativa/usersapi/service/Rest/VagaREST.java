@@ -1,7 +1,5 @@
 package com.rotativa.usersapi.service.Rest;
 
-import java.sql.Date;
-import java.sql.Time;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.rotativa.usersapi.entidades.*;
-import com.rotativa.usersapi.service.TipoPagamentoService;
-import com.rotativa.usersapi.service.UserService;
 import com.rotativa.usersapi.service.VagaService;
 // possui as operações operações básicas para manipular o usuário no bd
 @CrossOrigin(origins = "http://localhost:3000") //Permite que o back envie e receba dados de uma origem diferente
