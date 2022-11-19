@@ -42,7 +42,7 @@ public interface RepositorioVaga extends JpaRepository<Vagas, Long> {
     "on u.idusuario = hv.usuario_idusuario "+
     "join veiculo ve "+
     "on ve.idveiculo = hv.veiculo_idveiculo "+
-     "where v.nomeVaga = :nome" , nativeQuery = true) 
+     "where v.nomeVaga = :nome and estadovaga = 1" , nativeQuery = true) 
     List<List<String>> relatorioFinanceiroPorVaga(@Param("nome") String nome);
     
     @Query(value = "select v.nomeVaga,sum(t.ticketsUsados) as ticketsUsados ,count(ve.placa) as total_veiculos,sec_to_time((sum(time_to_sec(timediff( t.saida,t.entrada))))) as tempoUso from usuario u "+
@@ -59,7 +59,7 @@ public interface RepositorioVaga extends JpaRepository<Vagas, Long> {
     List<List<String>> relatorioRank();
 
     @Query(value = "select idvaga,nomeVaga,rua_avenida,bairro,acessibilidade,longitudeInicial,longitudeFinal,latitudeInicial,latitudeFinal,horarioUsoInica,horarioUsoFinal,tempoTicket,estadoVaga from vaga v "+
-    "where nomeVaga = :nome", nativeQuery = true)
+    "where nomeVaga = :nome and estadovaga = 1", nativeQuery = true)
     List<List<String>> buscarVaga(String nome);
 
 
